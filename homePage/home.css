@@ -1,0 +1,24 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url("https://www.codeproject.com/KB/scripting/681130/ScreenshotStarfield.png"); */
+    background-color: black;
+}
+.mainContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#title {
+    padding-top: 20px;
+    width: 50%;
+}
+#pointGraph {
+    padding-top: 25px;
+    width: 20%;
+}

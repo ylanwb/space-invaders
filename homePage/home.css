@@ -9,16 +9,98 @@ body {
     background-color: black;
 }
 .mainContent {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 #title {
     padding-top: 20px;
-    width: 50%;
+    width: 40%;
 }
 #pointGraph {
     padding-top: 25px;
     width: 20%;
+}
+.buttonContainer {
+    padding-top: 1vh;
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    height: 10vh;
+}
+#playBtn {
+    outline: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2vw;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#playBtn:hover {
+    cursor: crosshair;
+}
+#playBtnLink {
+    text-decoration: none;
+}
+#leaderBoardBtn {
+    padding-top: 1.5vh;
+    outline: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2vw;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#leaderBoardBtn:hover {
+    cursor: crosshair;
+}
+.leaderBoardContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+}
+#lBContainer {
+    display: none;
+}
+.leaderBoard {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 25px;
+    color: white;
+}
+#leaderBoardTitle {
+    font-size: 6vh;
+    margin-top: 2vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#closeLeaderBoard {
+    position: absolute;
+    bottom: 12.5vh;
+    font-size: 3vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.scoreContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.scoreNames {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 4vh;
+    margin-top: 3vh;
 }

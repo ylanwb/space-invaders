@@ -18,21 +18,21 @@ body {
   background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
   background-size: contain;
   border-right: 1px solid white;
-  animation: upScroll 20s linear infinite;
+  animation: upScroll 30000s linear infinite;
 }
 .rightSide {
   width: 20vw;
   background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
   background-size: contain;
   border-left: 1px solid white;
-  animation: downScroll 20s linear infinite;
+  animation: downScroll 30000s linear infinite;
 }
 @keyframes upScroll {
   0% {
     background-position: 0px 0px;
   }
   100% {
-    background-position: 0px -808px;
+    background-position: 0px -8000008px;
   }
 }
 @keyframes downScroll {
@@ -40,7 +40,7 @@ body {
     background-position: 0px 0px;
   }
   100% {
-    background-position: 0px 808px;
+    background-position: 0px 8000008px;
   }
 }
 @font-face {

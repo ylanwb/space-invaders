@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space Invaders</title>
+    <!-- pixel font 1 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <!-- end of google font -->
     <link rel="stylesheet" href="home.css" />
   </head>
   <body>
@@ -22,7 +30,7 @@
         />
         <span id="userName"></span>
         <div class="buttonContainer">
-          <a id="playBtnLink">
+          <a id="playBtnLink" href="#">
             <button id="playBtn">Press space to play!</button>
           </a>
         </div>
@@ -43,5 +51,24 @@
       </div>
     </div>
     <script type="module" src="home.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyB12veaT77OA0XGOXHHXBYtqOB8zMbHaWM",
+        authDomain: "spaceinvaders-a530b.firebaseapp.com",
+        projectId: "spaceinvaders-a530b",
+        storageBucket: "spaceinvaders-a530b.appspot.com",
+        messagingSenderId: "548842653827",
+        appId: "1:548842653827:web:5c800af540dc5e9af273b6",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+    </script>
   </body>
 </html>

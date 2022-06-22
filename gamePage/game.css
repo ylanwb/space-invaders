@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.gameContainer {
+  width: 60vw;
+  height: 100vh;
+  background-color: black;
+}
+.leftSide {
+  width: 20vw;
+  background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
+  background-size: contain;
+  border-right: 1px solid white;
+  animation: upScroll 20s linear infinite;
+}
+.rightSide {
+  width: 20vw;
+  background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
+  background-size: contain;
+  border-left: 1px solid white;
+  animation: downScroll 20s linear infinite;
+}
+@keyframes upScroll {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px -808px;
+  }
+}
+@keyframes downScroll {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px 808px;
+  }
+}
+@font-face {
+    font-family: 'PixelFont';
+    src: url('');
+}

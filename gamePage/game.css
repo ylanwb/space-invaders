@@ -3,17 +3,32 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  display: flex;
 }
-.mainContainer {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .mainContainer {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
-}
-.gameContainer {
-  width: 60vw;
-  height: 100vh;
+} */
+/* .gameContainer {
+  display: flex;
+  flex-direction: row;
   background-color: black;
 }
 .leftSide {
@@ -21,16 +36,37 @@ body, html {
   background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
   background-size: contain;
   border-right: 1px solid white;
+<<<<<<< HEAD
   animation: upScroll 30000s linear infinite;
+=======
+  animation: upScroll 20s linear infinite;
+  z-index: 100;
+}
+.middlePart {
+  width: 60vw;
+>>>>>>> 64c4f5f25be115cc0a1f8313aeaeb8ce50ad8342
 }
 .rightSide {
   width: 20vw;
   background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
   background-size: contain;
   border-left: 1px solid white;
+<<<<<<< HEAD
   animation: downScroll 30000s linear infinite;
 }
 @keyframes upScroll {
+=======
+  animation: downScroll 20s linear infinite;
+  z-index: 100;
+  position: relative;
+} */
+/* #gameCanvas { */
+  /* z-index: 999; */
+  /* position: absolute; */
+  /* top: 0; */
+/* } */
+/* @keyframes upScroll {
+>>>>>>> 64c4f5f25be115cc0a1f8313aeaeb8ce50ad8342
   0% {
     background-position: 0px 0px;
   }
@@ -45,8 +81,4 @@ body, html {
   100% {
     background-position: 0px 8000008px;
   }
-}
-@font-face {
-    font-family: 'PixelFont';
-    src: url('');
-}
+} */

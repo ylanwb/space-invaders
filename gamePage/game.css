@@ -1,16 +1,32 @@
 body {
   margin: 0;
   padding: 0;
+  display: flex;
 }
-.mainContainer {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .mainContainer {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
-}
-.gameContainer {
-  width: 60vw;
-  height: 100vh;
+} */
+/* .gameContainer {
+  display: flex;
+  flex-direction: row;
   background-color: black;
 }
 .leftSide {
@@ -19,6 +35,10 @@ body {
   background-size: contain;
   border-right: 1px solid white;
   animation: upScroll 20s linear infinite;
+  z-index: 100;
+}
+.middlePart {
+  width: 60vw;
 }
 .rightSide {
   width: 20vw;
@@ -26,8 +46,15 @@ body {
   background-size: contain;
   border-left: 1px solid white;
   animation: downScroll 20s linear infinite;
-}
-@keyframes upScroll {
+  z-index: 100;
+  position: relative;
+} */
+/* #gameCanvas { */
+  /* z-index: 999; */
+  /* position: absolute; */
+  /* top: 0; */
+/* } */
+/* @keyframes upScroll {
   0% {
     background-position: 0px 0px;
   }
@@ -42,8 +69,4 @@ body {
   100% {
     background-position: 0px 808px;
   }
-}
-@font-face {
-    font-family: 'PixelFont';
-    src: url('');
-}
+} */

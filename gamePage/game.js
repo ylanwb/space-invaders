@@ -221,7 +221,8 @@ function animate() {
 
               if (grid.invaders.length > 0) {
                 const firstInvader = grid.invaders[0]
-                const lastInvader = grid.invaders[0]
+                const lastInvader = grid.invaders[grid.
+                ]
               }
             }
           }, 1);

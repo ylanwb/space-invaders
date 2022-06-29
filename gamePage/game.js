@@ -1,9 +1,12 @@
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
-canvas.height = window.innerHeight;
+// const canvasWidth = document.getElementsByClassName("middlePart")
+
+canvas.height = document.body.clientHeight;
+// canvas.height = window.innerHeight
+
 canvas.width = document.body.clientWidth;
-canvas.height = window.innerHeight;
 
 class Player {
   constructor() {
@@ -15,9 +18,9 @@ class Player {
     const image = new Image();
     image.src = "./img/spaceship.png";
     image.onload = () => {
-      const scale = 0.25;
+      const scale = 0.15;
       this.image = image;
-      this.width = image.width * scale;
+      this.width = image.width * scale * 1.5;
       this.height = image.height * scale;
       this.position = {
         x: canvas.width / 2 - this.width / 2,
@@ -69,7 +72,7 @@ class Projectile {
 }
 
 class Invader {
-  constructor({position}) {
+  constructor(position) {
     this.velocity = {
       x: 0,
       y: 0,
@@ -78,13 +81,13 @@ class Invader {
     const image = new Image();
     image.src = "./img/invader.png";
     image.onload = () => {
-      const scale = 2;
+      const scale = 1.0;
       this.image = image;
-      this.width = image.width * scale;
+      this.width = image.width * scale * 1.5;
       this.height = image.height * scale;
       this.position = {
         x: position.x,
-        y: position.y
+        y: position.y,
       };
     };
   }
@@ -93,7 +96,7 @@ class Invader {
     // c.fillStyle = "red";
     // c.fillRect(this.position.x, this.position.y, this.width, this.height);
 
-    if (this.image)
+    if (this.image) {
       c.drawImage(
         this.image,
         this.position.x,
@@ -101,6 +104,7 @@ class Invader {
         this.width,
         this.height
       );
+    }
   }
   update() {
     if (this.image) {
@@ -123,15 +127,19 @@ class Grid {
       y: 0,
     };
 
-    this.invaders = [new Invader()];
+    this.invaders = [];
 
-    for (let i = 0; i < 9; i++) {
-      this.invaders.push(
-        new Invader({position: {
-          x:0,
-          y:0
-        }})
-      );
+    // const collumn = Math.floor(Math.random() * 10 + 5)
+    // const rows = Math.floor(Math.random() * 5 + 2)
+    for (let x = 0; x < 20; x++) {
+      for (let y = 0; y < 1; y++) {
+        this.invaders.push(
+          new Invader({
+            x: x * 45,
+            y: y * 0,
+          })
+        );
+      }
     }
     console.log(this.invaders);
   }

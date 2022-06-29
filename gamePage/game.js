@@ -54,7 +54,7 @@ class Projectile {
     this.position = position;
     this.velocity = velocity;
 
-    this.radius = 3;
+    this.radius = 4 ;
   }
 
   draw() {
@@ -106,11 +106,11 @@ class Invader {
       );
     }
   }
-  update() {
+  update({ velocity }) {
     if (this.image) {
       this.draw();
-      this.position.x += this.velocity.x;
-      this.position.y += this.velocity.y;
+      this.position.x += velocity.x;
+      this.position.y += velocity.y;
     }
   }
 }
@@ -123,27 +123,40 @@ class Grid {
     };
 
     this.velocity = {
-      x: 0,
+      x: 3,
       y: 0,
     };
 
     this.invaders = [];
 
-    // const collumn = Math.floor(Math.random() * 10 + 5)
+    const collumn = 15 * 45;
     // const rows = Math.floor(Math.random() * 5 + 2)
-    for (let x = 0; x < 20; x++) {
-      for (let y = 0; y < 1; y++) {
+
+    this.width = collumn;
+
+    for (let x = 0; x < 15; x++) {
+      for (let y = 0; y < 5; y++) {
         this.invaders.push(
           new Invader({
             x: x * 45,
-            y: y * 0,
+            y: y * 30,
           })
         );
       }
     }
     console.log(this.invaders);
   }
-  update() {}
+  update() {
+    this.position.x += this.velocity.x;
+    this.position.y += this.velocity.y;
+
+    this.velocity.y = 0;
+
+    if (this.position.x + this.width >= canvas.width || this.position.x <= 0) {
+      this.velocity.x = -this.velocity.x;
+      this.velocity.y = 30;
+    }
+  }
 }
 
 const player = new Player();
@@ -184,8 +197,36 @@ function animate() {
 
   grids.forEach((grid) => {
     grid.update();
-    grid.invaders.forEach((invader) => {
-      invader.update();
+    grid.invaders.forEach((invader, i) => {
+      invader.update({ velocity: grid.velocity });
+
+      projectiles.forEach((projectile, j) => {
+        if (
+          projectile.position.y - projectile.radius <= invader.position.y + invader.height &&
+          projectile.position.x + projectile.radius >= invader.position.x &&
+          projectile.position.x - projectile.radius <= invader.position.x + invader.width &&
+          projectile.position.y + projectile.radius >= invader.position.y
+        ) {
+          setTimeout(() => {
+            const invaderFound = grid.invaders.find((invader2) => {
+              return invader2 === invader;
+            });
+            const projectileFound = projectiles.find(
+              projectile2 => projectile2 === projectile
+            )
+            // remove invader and projectile
+            if (invaderFound && projectileFound) {
+              grid.invaders.splice(i, 1);
+              projectiles.splice(j, 1);
+
+              if (grid.invaders.length > 0) {
+                const firstInvader = grid.invaders[0]
+                const lastInvader = grid.invaders[0]
+              }
+            }
+          }, 1);
+        }
+      });
     });
   });
 
@@ -203,6 +244,11 @@ function animate() {
   } else {
     player.velocity.x = 0;
   }
+  // if (frames % 1000 === 0){
+  //   grids.push(new Grid())
+  // }
+
+  // frames++
 }
 animate();
 

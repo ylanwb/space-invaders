@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 100000;
 }
 #title {
   padding-top: 20px;
@@ -66,6 +67,7 @@ body {
   align-items: center;
   position: absolute;
   top: 0;
+  z-index: 10000;
 }
 #lBContainer {
   display: none;
@@ -106,4 +108,56 @@ body {
   font-family: "Press Start 2P", cursive;
   font-size: 2.5vh;
   margin-top: 3vh;
+}
+
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+.gameContainer {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+}
+.leftSide {
+  width: 15vw;
+  background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
+  background-size: contain;
+  border-right: 1px solid white;
+  animation: upScroll 30000s linear infinite;
+  z-index: 1000;
+}
+.middlePart {
+  display: flex;
+  justify-content: center;
+  width: 70vw;
+  z-index: -10;
+}
+.rightSide {
+  width: 15vw;
+  background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
+  background-size: contain;
+  border-left: 1px solid white;
+  animation: downScroll 30000s linear infinite;
+  z-index: 1000;
+  position: relative;
+}
+@keyframes upScroll {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px -8000008px;
+  }
+}
+@keyframes downScroll {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px 8000008px;
+  }
 }

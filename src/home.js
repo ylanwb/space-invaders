@@ -3,6 +3,7 @@ const leaderBoard = document.getElementById("lBContainer");
 const mainContent = document.getElementById("mnContent");
 const playBtnLink = document.getElementById("playBtnLink");
 const scoreContainer = document.getElementById("scoreCntainer");
+
 setInterval(flicker, 1000);
 
 function flicker() {

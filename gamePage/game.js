@@ -156,7 +156,7 @@ class Grid {
     };
 
     this.velocity = {
-      x: 0.001,
+      x: 7,
       y: 0,
     };
 
@@ -194,7 +194,7 @@ class Grid {
 
 const player = new Player();
 const projectiles = [];
-const grids = [new Grid()];
+const grids = [];
 const invaderProjectiles = [];
 const keys = {
   a: {
@@ -221,9 +221,24 @@ function animate() {
   c.fillStyle = "black";
   c.fillRect(0, 0, canvas.width, canvas.height);
   player.update();
-  invaderProjectiles.forEach((invaderProjectile) => {
-    invaderProjectile.update();
+  invaderProjectiles.forEach((invaderProjectile, index) => {
+    if (
+      invaderProjectile.position.y + invaderProjectile.height >=
+      canvas.height * 2
+    ) {
+      setTimeout(() => {
+        invaderProjectiles.splice(index, 1);
+      }, 0);
+    } else invaderProjectile.update();
+    if (
+      invaderProjectile.position.y + invaderProjectile.height >= player.position.y
+      // invaderProjectile.position.x + invaderProjectile.width >= player.position.x &&
+      // invaderProjectile.position.x <= player.position.x + player.width
+    ) {
+      console.log("you lose")
+    }
   });
+
   projectiles.forEach((projectile, index) => {
     if (projectile.position.y + projectile.radius <= 0) {
       setTimeout(() => {
@@ -241,7 +256,6 @@ function animate() {
     if (frames % 100 === 0 && grid.invaders.length > 0) {
       grid.invaders[randomNumber].shoot(invaderProjectiles);
     }
-
     grid.invaders.forEach((invader, i) => {
       invader.update({ velocity: grid.velocity });
 
@@ -300,11 +314,11 @@ function animate() {
   }
 
   // spawning enemies
-  // if (frames % randomInterval === 0){
-  //   grids.push(new Grid())
-  //   randomInterval = Math.floor(Math.random() * 500 + 500)
-  //   frames = 0
-  // }
+  const randomInterval = Math.floor(Math.random() * 500 + 500);
+  if (frames % randomInterval === 0) {
+    grids.push(new Grid());
+    frames = 0;
+  }
 
   frames++;
 }

@@ -33,10 +33,10 @@ body, html {
 }
 .leftSide {
   width: 15vw;
-  /* background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png"); */
+  background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
   background-size: contain;
   border-right: 1px solid white;
-  animation: upScroll 20000s linear infinite;
+  animation: upScroll 200000s linear infinite;
   z-index: 1000;
 }
 .middlePart {
@@ -46,14 +46,14 @@ body, html {
 }
 .rightSide {
   width: 15vw;
-  /* background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png"); */
+  background-image: url("https://therush.files.wordpress.com/2013/08/invaders.png");
   background-size: contain;
   border-left: 1px solid white;
-  animation: downScroll 20000s linear infinite;
+  animation: downScroll 200000s linear infinite;
   z-index: 1000;
   position: relative;
 }
-/* @keyframes upScroll {
+@keyframes upScroll {
   0% {
     background-position: 0px 0px;
   }
@@ -68,4 +68,4 @@ body, html {
   100% {
     background-position: 0px 8000008px;
   }
-} */
+}

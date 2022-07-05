@@ -5,22 +5,55 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="game.css" />
   </head>
   <body>
-
-    
     <div id="sidePartContainer" class="mainContainer">
-      <div class="gameContainer">
-        <div class="leftSide"></div>
+      <div id="gameCntainer" class="gameContainer">
+        <div class="leftSide">
+          <div id="userLives">
+            <p><span>Lives:</span><span id="livesEl">3</span></p>
+          </div>
+          <div id="leftSideAnims"></div>
+        </div>
         <div class="middlePart">
           <canvas id="gameCanvas"></canvas>
         </div>
-        <div class="rightSide"></div>
+        <div class="rightSide">
+          <div id="userScore">
+            <p><span>Score:</span><span id="scoreEl">0</span></p>
+          </div>
+          <div id="rightSideAnims"></div>
+        </div>
+      </div>
+      <div id="gameOverContainer" class="gameOverCntainer">
+        <div class="gameOverBox">
+          <h1 id="gameOverTitle">Game Over</h1>
+          <div id="scoreCntainer" class="scoreContainer">
+            <div class="scoreNames">
+              <p><span>Final Score:</span><span id="finalScoreEl">0</span></p>
+            </div>
+            <img id="roseImg" src="http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/b09399f88b96513.png" alt="rose">
+            <div class="userOptions">
+              <ul id="list">
+                <a href="game.html">
+                  <li id="restartOption">Restart</li>
+                </a>
+                <a href="../src/index.html">
+                  <li id="homeOption">Return Home</li>
+                </a>
+              </ul>
+              <span id="userTip">press SPACE to continue</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
     <script src="./game.js"></script>
   </body>
 </html>
-

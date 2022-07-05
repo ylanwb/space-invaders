@@ -32,6 +32,46 @@ body {
   width: 35%;
   height: 10vh;
 }
+#userName {
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  text-align: center;
+  color: white;
+  font-size: 2.5vh;
+  padding: 10px;
+  font-family: "Press Start 2P", cursive;
+}
+::placeholder { 
+  color: white;
+  opacity: 1; 
+}
+.userInputs {
+  border-style: none;
+  border-bottom: 1px solid white;
+  outline: none;
+  font-size: 20px;
+  position: relative;
+  display: block;
+  padding-bottom: 3px;
+  margin-top: 25px;
+  color: white;
+}
+.userInputs:focus + label > span,
+.userInputs:valid + label > span {
+  -webkit-transition: top 0.2s ease, font-size 0.2s ease;
+  transition: top 0.2s ease, font-size 0.2s ease;
+  position: absolute;
+  top: -25px;
+  font-size: 17px;
+  display: none;
+}
+#userNameText {
+  color: white;
+  position: relative;
+  top: -30px;
+}
 #playBtn {
   outline: none;
   background: none;
@@ -40,6 +80,7 @@ body {
   font-size: 1.5vw;
   font-family: "Press Start 2P", cursive;
   overflow: hidden;
+  opacity: 0;
 }
 #playBtn:hover {
   cursor: crosshair;
@@ -55,6 +96,7 @@ body {
   color: white;
   font-size: 1.5vw;
   font-family: "Press Start 2P", cursive;
+  opacity: 0;
 }
 #leaderBoardBtn:hover {
   cursor: crosshair;
@@ -109,7 +151,6 @@ body {
   font-size: 2.5vh;
   margin-top: 3vh;
 }
-
 .mainContainer {
   width: 100vw;
   height: 100vh;

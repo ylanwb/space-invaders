@@ -373,15 +373,15 @@ function animate() {
     grid.update();
     const randomNumber = Math.floor(Math.random() * grid.invaders.length);
     // spawn invader projectiles
-    if (frames % 50 === 0 && score <= 10000 && grid.invaders.length > 0) {
+    if (frames % 50 === 0 && score <= 5000 && grid.invaders.length > 0) {
       grid.invaders[randomNumber].shoot(invaderProjectiles);
     }
     // hard mode
-    else if (frames % 25 === 0 && score >= 10000 && grid.invaders.length > 0) {
+    else if (frames % 25 === 0 && score >= 5000 && grid.invaders.length > 0) {
       grid.invaders[randomNumber].shoot(invaderProjectiles);
     }
     // impossible mode
-    else if (frames % 10 === 0 && score >= 1000 && grid.invaders.length > 0) {
+    else if (frames % 10 === 0 && score >= 10000 && grid.invaders.length > 0) {
       grid.invaders[randomNumber].shoot(invaderProjectiles);
     }
     grid.invaders.forEach((invader, i) => {

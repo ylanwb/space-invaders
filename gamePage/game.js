@@ -346,6 +346,7 @@ function animate() {
           gameContainer.style.opacity = 0;
           gameOverContainer.style.transition = "all 3s";
           gameOverContainer.style.top = 0;
+          localStorage.setItem("finalScore", score);
         }, 0);
         setTimeout(() => {
           game.active = false;
@@ -562,9 +563,9 @@ document.addEventListener(
         addClass(liSelected, "selected");
       }
     }
-    if (event.which === 32 && game.over === true) {
-      liSelected.click();
-    }
+    // if (event.which === 32 && game.over === true) {
+    //   liSelected.click();
+    // }
   },
   false
 );

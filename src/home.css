@@ -43,9 +43,9 @@ body {
   padding: 10px;
   font-family: "Press Start 2P", cursive;
 }
-::placeholder { 
+::placeholder {
   color: white;
-  opacity: 1; 
+  opacity: 1;
 }
 .userInputs {
   border-style: none;
@@ -124,6 +124,8 @@ body {
   border: 1px solid white;
   border-radius: 25px;
   color: white;
+  position: fixed;
+  overflow-y: auto;
 }
 #leaderBoardTitle {
   font-size: 4vh;
@@ -140,6 +142,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
 }
 .scoreNames {
@@ -154,7 +157,7 @@ body {
 .mainContainer {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+
   display: flex;
   justify-content: center;
 }

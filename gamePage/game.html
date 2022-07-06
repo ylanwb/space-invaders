@@ -44,10 +44,10 @@
             />
             <div class="userOptions">
               <ul id="list">
-                <a href="game.html">
+                <a>
                   <li id="restartOption">Restart</li>
                 </a>
-                <a href="../src/index.html">
+                <a>
                   <li id="homeOption">Return Home</li>
                 </a>
               </ul>
@@ -59,9 +59,75 @@
     </div>
 
     <script src="./game.js"></script>
-    <script>
-      const name = JSON.parse(localStorage.getItem("userName"));
-      console.log(name, score);
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
+      import {
+        getDatabase,
+        set,
+        ref,
+      } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-database.js";
+      import {
+        getFirestore,
+        collection,
+        doc,
+        addDoc,
+        setDoc,
+      } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyB12veaT77OA0XGOXHHXBYtqOB8zMbHaWM",
+        authDomain: "spaceinvaders-a530b.firebaseapp.com",
+        projectId: "spaceinvaders-a530b",
+        storageBucket: "spaceinvaders-a530b.appspot.com",
+        messagingSenderId: "548842653827",
+        appId: "1:548842653827:web:5c800af540dc5e9af273b6",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const playersCollectionRef = collection(db, "players");
+      const restartButton = document.getElementById("restartOption");
+      const homeButton = document.getElementById("homeOption");
+      restartButton.addEventListener("click", async () => {
+        const name = JSON.parse(localStorage.getItem("userName"));
+        const finalScore = JSON.parse(localStorage.getItem("finalScore"));
+        if (name !== null && finalScore !== 0) {
+          await setDoc(doc(playersCollectionRef), {
+            name: name,
+            score: finalScore,
+            data: "testDate",
+          })
+            .then((res) => {
+              window.location.assign("game.html")
+            })
+            .catch((err) => {
+              console.log(err, "fail");
+            });
+        }
+      });
+      homeButton.addEventListener("click", async () => {
+        const name = JSON.parse(localStorage.getItem("userName"));
+        const finalScore = JSON.parse(localStorage.getItem("finalScore"));
+        if (name !== null && finalScore !== 0) {
+          await setDoc(doc(playersCollectionRef), {
+            name: name,
+            score: finalScore,
+            data: "testDate",
+          })
+            .then((res) => {
+              window.location.assign("../src/index.html")
+              console.log(res, "sucess");
+            })
+            .catch((err) => {
+              console.log(err, "fail");
+            });
+        }
+      });
     </script>
   </body>
 </html>

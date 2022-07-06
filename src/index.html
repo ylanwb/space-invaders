@@ -28,7 +28,14 @@
           src="https://cdn.dribbble.com/users/1161651/screenshots/2691796/space-invader-enemy.gif"
           alt="pointGraph"
         />
-        <input type="text" placeholder="Enter Username" name="userName" id="userName" class="userInputs" required>
+        <input
+          type="text"
+          placeholder="Enter Username"
+          name="userName"
+          id="userName"
+          class="userInputs"
+          required
+        />
         <!-- <label id="userNameText" for="userName">
           <span>
             Enter Username
@@ -43,6 +50,7 @@
       </div>
       <div id="lBContainer" class="leaderBoardContainer">
         <div class="leaderBoard">
+          2
           <h1 id="leaderBoardTitle">LeaderBoard</h1>
           <div id="scoreCntainer" class="scoreContainer">
             <div class="scoreNames">
@@ -55,7 +63,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- <div class="mainContainer">
       <div class="gameContainer">
         <div class="leftSide"></div>
@@ -72,6 +80,14 @@
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
       // TODO: Add SDKs for Firebase products that you want to use
       // https://firebase.google.com/docs/web/setup#available-libraries
+      import {
+        getFirestore,
+        collection,
+        doc,
+        addDoc,
+        getDocs,
+        setDoc,
+      } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
       // Your web app's Firebase configuration
       const firebaseConfig = {
@@ -82,9 +98,16 @@
         messagingSenderId: "548842653827",
         appId: "1:548842653827:web:5c800af540dc5e9af273b6",
       };
-
+      let players = [];
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const querySnapshot = await getDocs(collection(db, "players"));
+      querySnapshot.forEach((doc) => {
+        const player = doc.data();
+        players.push(player);
+      });
+      console.log(players);
     </script>
   </body>
 </html>

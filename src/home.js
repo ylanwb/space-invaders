@@ -5,16 +5,20 @@ const playBtnLink = document.getElementById("playBtnLink");
 const scoreContainer = document.getElementById("scoreCntainer");
 const leaderBoardBtn = document.getElementById("leaderBoardBtn");
 const userNameValue = document.getElementById("userName");
+const placeHolderAfter = document.getElementById('placeHolderAfter')
 
 let userNameCheck;
 
 function checkName(value) {
   if (value === "") {
+    userNameCheck = false;
     playButton.style.opacity = 0;
     leaderBoardBtn.style.opacity = 0;
-    userNameCheck = false;
+    placeHolderAfter.style.opacity = 0;
+
   } else if (value !== "" && value.length >= 3) {
     console.log(value);
+    placeHolderAfter.style.opacity = 100;
     playButton.style.opacity = 100;
     leaderBoardBtn.style.opacity = 100;
     return (userNameCheck = true);
@@ -42,9 +46,11 @@ document.body.addEventListener("keypress", function (e) {
   if (x == 13 && userNameCheck === true) {
     leaderBoard.style.display = "flex";
     mainContent.style.opacity = "20%";
+    mainContent.style.display = "none"
   } else {
     mainContent.style.opacity = "100%";
     leaderBoard.style.display = "none";
+    mainContent.style.display = "flex"
   }
   if (x === 32 && userNameCheck === true) {
     localStorage.setItem("userName", JSON.stringify(userNameValue.value));
@@ -54,208 +60,33 @@ document.body.addEventListener("keypress", function (e) {
   //   if ((x ==))
 });
 
-const dummyData = [
-  {
-    rank: 1,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 2,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 3,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 4,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 5,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 6,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 7,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 8,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 9,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 1,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 2,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 3,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 4,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 5,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 6,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 7,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 8,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 9,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 1,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 2,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 3,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 4,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 5,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 6,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 7,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 8,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 9,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 1,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 2,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 3,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 4,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 5,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 6,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 7,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 8,
-    name: "testName",
-    score: 99,
-  },
-  {
-    rank: 9,
-    name: "testName",
-    score: 99,
-  },
-];
+// const dummyData = [
+//   {
+//     // rank: ,
+//     // name: ,
+//     // score: ,
+//   },
+// ];
 
-dummyData.map((data) => {
-  const rank = data.rank;
-  const name = data.name;
-  const score = data.score;
+// dummyData.map((data) => {
+//   const rank = data.rank;
+//   const name = data.name;
+//   const score = data.score;
 
-  const nameText = document.createElement("span");
-  const rankText = document.createElement("span");
-  const scoreText = document.createElement("span");
+//   const nameText = document.createElement("span");
+//   const rankText = document.createElement("span");
+//   const scoreText = document.createElement("span");
 
-  nameText.innerText = name;
-  rankText.innerText = rank;
-  scoreText.innerText = score;
+//   nameText.innerText = name;
+//   rankText.innerText = rank;
+//   scoreText.innerText = score;
 
-  const userScores = document.createElement("div");
-  userScores.classList.add("scoreNames");
+//   const userScores = document.createElement("div");
+//   userScores.classList.add("scoreNames");
 
-  scoreContainer.append(userScores);
+//   scoreContainer.append(userScores);
 
-  userScores.append(rankText);
-  userScores.append(nameText);
-  userScores.append(scoreText);
-});
+//   userScores.append(rankText);
+//   userScores.append(nameText);
+//   userScores.append(scoreText);
+// });

@@ -28,12 +28,14 @@
           src="https://cdn.dribbble.com/users/1161651/screenshots/2691796/space-invader-enemy.gif"
           alt="pointGraph"
         />
+        <span id="placeHolderAfter">Username</span>
         <input
           type="text"
           placeholder="Enter Username"
           name="userName"
           id="userName"
           class="userInputs"
+          spellcheck="false"
           required
         />
         <!-- <label id="userNameText" for="userName">
@@ -50,17 +52,15 @@
       </div>
       <div id="lBContainer" class="leaderBoardContainer">
         <div class="leaderBoard">
-          2
           <h1 id="leaderBoardTitle">LeaderBoard</h1>
-          <div id="scoreCntainer" class="scoreContainer">
-            <div class="scoreNames">
-              <span>Rank</span>
-              <span>Name</span>
-              <span>Points</span>
-            </div>
+          <div class="scoreNames">
+            <span>Rank</span>
+            <span>Name</span>
+            <span>Points</span>
           </div>
-          <span id="closeLeaderBoard">Press any key to close</span>
+          <div id="scoreCntainer" class="scoreContainer"></div>
         </div>
+        <span id="closeLeaderBoard">Press any key to close</span>
       </div>
     </div>
 
@@ -107,7 +107,45 @@
         const player = doc.data();
         players.push(player);
       });
-      console.log(players);
+
+      const scoreContainer = document.getElementById("scoreCntainer");
+
+      players.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
+
+      let sortOut = players.sort(
+        (a, b) => parseFloat(b.score) - parseFloat(a.score)
+      );
+
+      // for (let i = 0; i < players.length; i++) {
+      //   const ranking = 0;
+      //   console.log(ranking + i + 1);
+      // }
+
+      players.map((data) => {
+        const rank = 1 + 1;
+        const name = data.name;
+        const score = data.score;
+
+        const nameText = document.createElement("span");
+        const rankText = document.createElement("span");
+        const scoreText = document.createElement("span");
+
+        nameText.innerText = name;
+        rankText.innerText = rank;
+        scoreText.innerText = score;
+
+        const userScores = document.createElement("div");
+        userScores.classList.add("scoreNames");
+
+        scoreContainer.append(userScores);
+
+        userScores.append(rankText);
+        userScores.append(nameText);
+        userScores.append(scoreText);
+
+        console.log(players);
+      });
+      // console.log(players);
     </script>
   </body>
 </html>

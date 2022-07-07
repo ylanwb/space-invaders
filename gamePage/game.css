@@ -97,7 +97,7 @@ html {
   color: white;
 }
 .gameOverBox {
-  width: 40%;
+  width: 30%;
   height: 85%;
   display: flex;
   flex-direction: column;
@@ -121,27 +121,30 @@ html {
   align-items: center;
   text-align: center;
   justify-content: space-between;
-  height: 25vh;
+  height: 23vh;
 }
 #list {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0;
+  justify-content: space-around;
+  height: 100%;
 }
 a {
   text-decoration: none;
 }
 #homeOption {
-  padding: 20px;
-  margin: 10px;
+  /* padding: 20px; */
+  /* margin: 10px; */
   font-size: 2.5vh;
   font-family: "Press Start 2P", cursive;
   color: white;
   list-style-type: none;
 }
 #restartOption {
-  padding: 20px;
+  /* padding: 20px; */
+  /* margin: 10px; */
   font-size: 2.5vh;
   font-family: "Press Start 2P", cursive;
   list-style-type: none;
@@ -168,7 +171,7 @@ li.selected {
   align-items: center;
   color: white;
   font-family: "Press Start 2P", cursive;
-  font-size: 2.5vh;
+  font-size: 2.2vh;
   margin-top: 3vh;
 }
 @keyframes upScroll {

@@ -32,16 +32,30 @@ body {
   width: 35%;
   height: 10vh;
 }
+#placeHolderAfter {
+  color: black;
+  background-color: white;
+  box-shadow:   -7px 0 0 0 rgb(255, 255, 255),
+  7px 0 0 0 rgb(255, 255, 255),
+  0 -7px 0 0 rgb(255, 255, 255),
+  0 0px 0 0 rgb(255, 255, 255);
+  padding: 3px 10px 7px 12px;
+  width: 30vh;
+  text-align: center;
+}
 #userName {
   border: none;
   background: transparent;
-  border-bottom: 1px solid #fff;
   outline: none;
   text-align: center;
   color: white;
   font-size: 2.5vh;
   padding: 10px;
   font-family: "Press Start 2P", cursive;
+  box-shadow:   -7px 0 0 0 rgb(255, 255, 255),
+                 7px 0 0 0 rgb(255, 255, 255),
+                 0 -7px 0 0 rgb(255, 255, 255),
+                 0 7px 0 0 rgb(255, 255, 255);
 }
 ::placeholder {
   color: white;
@@ -55,7 +69,6 @@ body {
   position: relative;
   display: block;
   padding-bottom: 3px;
-  margin-top: 25px;
   color: white;
 }
 .userInputs:focus + label > span,
@@ -98,9 +111,6 @@ body {
   font-family: "Press Start 2P", cursive;
   opacity: 0;
 }
-#leaderBoardBtn:hover {
-  cursor: crosshair;
-}
 .leaderBoardContainer {
   width: 100vw;
   height: 100vh;
@@ -125,7 +135,6 @@ body {
   border-radius: 25px;
   color: white;
   position: fixed;
-  overflow-y: auto;
 }
 #leaderBoardTitle {
   font-size: 4vh;
@@ -134,9 +143,10 @@ body {
 }
 #closeLeaderBoard {
   position: absolute;
-  bottom: 12.5vh;
+  bottom: 10.5vh;
   font-size: 2vh;
   font-family: "Press Start 2P", cursive;
+  color: white;
 }
 .scoreContainer {
   width: 100%;
@@ -144,6 +154,11 @@ body {
   flex-direction: column;
   position: relative;
   align-items: center;
+  overflow-y: auto;
+  height: 75%;
+}
+.scoreContainer::-webkit-scrollbar {
+  display: none;
 }
 .scoreNames {
   width: 80%;

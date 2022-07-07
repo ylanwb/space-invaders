@@ -474,11 +474,13 @@ addEventListener("keydown", ({ key }) => {
       break;
     case "d":
       keys.d.pressed = true;
+
       break;
     case "ArrowRight":
       keys.d.pressed = true;
       break;
     case " ":
+      keys.space.pressed = true;
       projectiles.push(
         new Projectile({
           position: {
@@ -511,10 +513,14 @@ addEventListener("keyup", ({ key }) => {
       keys.d.pressed = false;
       break;
     case " ":
+      keys.space.pressed = false
       break;
   }
 });
 
+
+
+//  extra stuff
 var ul = document.getElementById("list");
 var liSelected;
 var index = -1;

@@ -44,11 +44,11 @@
           </span>
         </label> -->
         <div class="buttonContainer">
-          <a id="playBtnLink" href="#">
-            <button id="playBtn">Press space to play!</button>
+          <a id="playBtnLink" href="http://127.0.0.1:5500/gamePage/game.html">
+            <button id="playBtn">NEW GAME</button>
           </a>
         </div>
-        <button id="leaderBoardBtn">Press enter to see the Leaderboard</button>
+          <button id="leaderBoardBtn">Leaderboard</button>
       </div>
       <div id="lBContainer" class="leaderBoardContainer">
         <div class="leaderBoard">
@@ -121,8 +121,8 @@
       //   console.log(ranking + i + 1);
       // }
 
-      players.map((data) => {
-        const rank = 1 + 1;
+      players.map((data, index) => {
+        const rank = index + 1;
         const name = data.name;
         const score = data.score;
 

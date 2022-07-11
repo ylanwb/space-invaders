@@ -12,15 +12,15 @@ let userNameCheck;
 function checkName(value) {
   if (value === "") {
     userNameCheck = false;
-    playButton.style.opacity = 0;
-    leaderBoardBtn.style.opacity = 0;
-    placeHolderAfter.style.opacity = 0;
+    playButton.style.display = "none";
+    leaderBoardBtn.style.display = "none";
+    placeHolderAfter.style.display = "none";
 
   } else if (value !== "" && value.length >= 3) {
     console.log(value);
-    placeHolderAfter.style.opacity = 100;
-    playButton.style.opacity = 100;
-    leaderBoardBtn.style.opacity = 100;
+    placeHolderAfter.style.display = "inline";
+    playButton.style.display = "inline";
+    leaderBoardBtn.style.display = "inline";
     return (userNameCheck = true);
   }
 }
@@ -33,11 +33,16 @@ userNameValue.onkeyup = function () {
 setInterval(flicker, 1000);
 
 function flicker() {
-  playButton.style.display = "none";
+  playButton.style.opacity = 0;
   setTimeout(function () {
-    playButton.style.display = "inline";
+    playButton.style.opacity = 100;
   }, 500);
 }
+leaderBoardBtn.addEventListener("click", function () {
+  leaderBoard.style.display = "flex";
+    mainContent.style.opacity = "20%";
+    mainContent.style.display = "none"
+})
 document.body.addEventListener("keypress", function (e) {
   var x = e.which;
   var y = String.fromCharCode(x);
@@ -54,39 +59,39 @@ document.body.addEventListener("keypress", function (e) {
   }
   if (x === 32 && userNameCheck === true) {
     localStorage.setItem("userName", JSON.stringify(userNameValue.value));
-    playBtnLink.setAttribute("href", "../gamePage/game.html");
+    playBtnLink.setAttribute("href", "http://127.0.0.1:5500/gamePage/game.html");
     playBtnLink.click();
   }
   //   if ((x ==))
 });
 
-// const dummyData = [
+// const scoreData = [
 //   {
-//     // rank: ,
-//     // name: ,
-//     // score: ,
+//     rank: ,
+//     name: pla,
+//     score: ,
 //   },
 // ];
 
-// dummyData.map((data) => {
-//   const rank = data.rank;
-//   const name = data.name;
-//   const score = data.score;
+players.map((data, index) => {
+  const rank = index;
+  const name = data.name;
+  const score = data.score;
 
-//   const nameText = document.createElement("span");
-//   const rankText = document.createElement("span");
-//   const scoreText = document.createElement("span");
+  const nameText = document.createElement("span");
+  const rankText = document.createElement("span");
+  const scoreText = document.createElement("span");
 
-//   nameText.innerText = name;
-//   rankText.innerText = rank;
-//   scoreText.innerText = score;
+  nameText.innerText = name;
+  rankText.innerText = rank;
+  scoreText.innerText = score;
 
-//   const userScores = document.createElement("div");
-//   userScores.classList.add("scoreNames");
+  const userScores = document.createElement("div");
+  userScores.classList.add("scoreNames");
 
-//   scoreContainer.append(userScores);
+  scoreContainer.append(userScores);
 
-//   userScores.append(rankText);
-//   userScores.append(nameText);
-//   userScores.append(scoreText);
-// });
+  userScores.append(rankText);
+  userScores.append(nameText);
+  userScores.append(scoreText);
+});

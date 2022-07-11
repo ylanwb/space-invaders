@@ -7,8 +7,6 @@ const livesEl = document.getElementById("livesEl");
 const gameContainer = document.getElementById("gameCntainer");
 const gameOverContainer = document.getElementById("gameOverContainer");
 
-// const canvasWidth = document.getElementsByClassName("middlePart");
-
 canvas.width = document.body.clientWidth;
 canvas.height = window.innerHeight;
 
@@ -34,8 +32,6 @@ class Player {
     };
   }
   draw() {
-    // c.fillStyle = "red";
-    // c.fillRect(this.position.x, this.position.y, this.width, this.height);
     c.save();
     c.globalAlpha = this.opacity;
     if (this.image)
@@ -148,9 +144,6 @@ class Invader {
   }
 
   draw() {
-    // c.fillStyle = "red";
-    // c.fillRect(this.position.x, this.position.y, this.width, this.height);
-
     if (this.image) {
       c.drawImage(
         this.image,

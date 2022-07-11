@@ -117,7 +117,6 @@
           await setDoc(doc(playersCollectionRef), {
             name: name,
             score: finalScore,
-            data: "testDate",
           })
             .then((res) => {
               window.location.assign("../src/index.html")

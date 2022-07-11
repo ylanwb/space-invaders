@@ -64,15 +64,17 @@
       </div>
     </div>
 
-    <!-- <div class="mainContainer">
-      <div class="gameContainer">
-        <div class="leftSide"></div>
-        <div class="middlePart">
-          <canvas id="gameCanvas"></canvas>
-        </div>
-        <div class="rightSide"></div>
-      </div>
-    </div> -->
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/ojS8SPSAF7o?controls=0"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      id="lobbyMusic"
+      style="display:none"
+    ></iframe>
 
     <script type="module" src="home.js"></script>
     <script type="module">
@@ -112,17 +114,8 @@
 
       players.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
 
-      let sortOut = players.sort(
-        (a, b) => parseFloat(b.score) - parseFloat(a.score)
-      );
-
-      // for (let i = 0; i < players.length; i++) {
-      //   const ranking = 0;
-      //   console.log(ranking + i + 1);
-      // }
-
-      players.map((data) => {
-        const rank = 1 + 1;
+      players.map((data, index) => {
+        const rank = index + 1;
         const name = data.name;
         const score = data.score;
 
@@ -142,10 +135,8 @@
         userScores.append(rankText);
         userScores.append(nameText);
         userScores.append(scoreText);
-
-        console.log(players);
       });
-      // console.log(players);
+      console.log(players);
     </script>
   </body>
 </html>

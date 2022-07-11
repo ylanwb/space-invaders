@@ -6,10 +6,6 @@ const scoreContainer = document.getElementById("scoreCntainer");
 const leaderBoardBtn = document.getElementById("leaderBoardBtn");
 const userNameValue = document.getElementById("userName");
 const placeHolderAfter = document.getElementById('placeHolderAfter')
-
-
-
-  // let lobbyMusic = new Audio("https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3")
   
   // const lobbyMusic = document.getElementById('lobbyMusic')
 

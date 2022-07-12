@@ -11,11 +11,11 @@ const placeHolderAfter = document.getElementById('placeHolderAfter')
 
   // let lobbyMusic = new Audio("https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3")
   
-  const lobbyMusic = document.getElementById('lobbyMusic')
+  // const lobbyMusic = document.getElementById('lobbyMusic')
 
-  document.body.addEventListener("mousemove", function () {
-    lobbyMusic.src += "&" + "autoplay=1" + "&" + "loop=1"
-  }, { once: true })
+  // document.body.addEventListener("mousemove", function () {
+  //   lobbyMusic.src += "&" + "autoplay=1" + "&" + "loop=1"
+  // }, { once: true })
 
 let userNameCheck;
 

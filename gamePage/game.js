@@ -6,6 +6,10 @@ const scoreEl = document.getElementById("scoreEl");
 const livesEl = document.getElementById("livesEl");
 const gameContainer = document.getElementById("gameCntainer");
 const gameOverContainer = document.getElementById("gameOverContainer");
+const hearts = document.getElementById("heartIcon")
+const hearts2 = document.getElementById("heartIcon2")
+const hearts3 = document.getElementById("heartIcon3")
+
 
 // const canvasWidth = document.getElementsByClassName("middlePart");
 
@@ -337,7 +341,11 @@ function animate() {
         lives -= 1;
         // console.log(lives);
         livesEl.innerHTML = lives;
+        hearts.remove()
       }, 0);
+      if (lives == 2) {
+        hearts2.remove()
+      }
       if (lives <= 1) {
         setTimeout(() => {
           player.opacity = 0;
@@ -347,6 +355,7 @@ function animate() {
           gameOverContainer.style.transition = "all 3s";
           gameOverContainer.style.top = 0;
           localStorage.setItem("finalScore", score);
+          hearts3.remove()
         }, 0);
         setTimeout(() => {
           game.active = false;

@@ -19,7 +19,6 @@ body {
   z-index: 100000;
 }
 #title {
-  padding-top: 20px;
   width: 40%;
 }
 #pointGraph {
@@ -103,7 +102,7 @@ body {
   text-decoration: none;
 }
 #leaderBoardBtn {
-  padding-top: 5vh;
+  margin-top: 2vh;
   outline: none;
   background: none;
   border: none;

@@ -17,9 +17,9 @@
         <div class="leftSide">
           <div id="userLives">
             <p style="display: none;"><span>Lives:</span><span id="livesEl">3</span></p>
-            <img id="heartIcon" src="https://i.pinimg.com/originals/fc/d0/30/fcd0300deb4fd92735c20a6ea91ec1ca.png" />
-            <img id="heartIcon" src="https://i.pinimg.com/originals/fc/d0/30/fcd0300deb4fd92735c20a6ea91ec1ca.png" />
-            <img id="heartIcon" src="https://i.pinimg.com/originals/fc/d0/30/fcd0300deb4fd92735c20a6ea91ec1ca.png" />
+            <img id="heartIcon" class="hearts" src="https://i.pinimg.com/originals/fc/d0/30/fcd0300deb4fd92735c20a6ea91ec1ca.png" />
+            <img id="heartIcon2" class="hearts" src="https://i.pinimg.com/originals/fc/d0/30/fcd0300deb4fd92735c20a6ea91ec1ca.png" />
+            <img id="heartIcon3" class="hearts" src="https://i.pinimg.com/originals/fc/d0/30/fcd0300deb4fd92735c20a6ea91ec1ca.png" />
           </div>
           <div id="leftSideAnims"></div>
         </div>
@@ -116,11 +116,10 @@
       homeButton.addEventListener("click", async () => {
         const name = JSON.parse(localStorage.getItem("userName"));
         const finalScore = JSON.parse(localStorage.getItem("finalScore"));
-        if (name !== null && finalScore !== 0) {
+        if (name !== null && finalScore >= 0) {
           await setDoc(doc(playersCollectionRef), {
             name: name,
             score: finalScore,
-            data: "testDate",
           })
             .then((res) => {
               window.location.assign("../src/index.html")

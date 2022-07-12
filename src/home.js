@@ -7,6 +7,16 @@ const leaderBoardBtn = document.getElementById("leaderBoardBtn");
 const userNameValue = document.getElementById("userName");
 const placeHolderAfter = document.getElementById('placeHolderAfter')
 
+
+
+  // let lobbyMusic = new Audio("https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3")
+  
+  const lobbyMusic = document.getElementById('lobbyMusic')
+
+  document.body.addEventListener("mousemove", function () {
+    lobbyMusic.src += "&" + "autoplay=1" + "&" + "loop=1"
+  }, { once: true })
+
 let userNameCheck;
 
 function checkName(value) {
@@ -62,36 +72,4 @@ document.body.addEventListener("keypress", function (e) {
     playBtnLink.setAttribute("href", "http://127.0.0.1:5500/gamePage/game.html");
     playBtnLink.click();
   }
-  //   if ((x ==))
-});
-
-// const scoreData = [
-//   {
-//     rank: ,
-//     name: pla,
-//     score: ,
-//   },
-// ];
-
-players.map((data, index) => {
-  const rank = index;
-  const name = data.name;
-  const score = data.score;
-
-  const nameText = document.createElement("span");
-  const rankText = document.createElement("span");
-  const scoreText = document.createElement("span");
-
-  nameText.innerText = name;
-  rankText.innerText = rank;
-  scoreText.innerText = score;
-
-  const userScores = document.createElement("div");
-  userScores.classList.add("scoreNames");
-
-  scoreContainer.append(userScores);
-
-  userScores.append(rankText);
-  userScores.append(nameText);
-  userScores.append(scoreText);
 });

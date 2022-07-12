@@ -116,8 +116,8 @@ html {
   margin-top: 2vh;
   font-family: "Press Start 2P", cursive;
 }
-#roseImg {
-  width: 60%;
+#gameOverImg {
+  width: 75%;
 }
 .userOptions {
   display: flex;
@@ -126,6 +126,7 @@ html {
   text-align: center;
   justify-content: space-between;
   height: 23vh;
+  width: 100%;
 }
 #list {
   display: flex;
@@ -138,22 +139,33 @@ html {
 }
 a {
   text-decoration: none;
+  width: 100%;
 }
 #homeOption {
-  /* padding: 20px; */
   /* margin: 10px; */
+  padding: 5px;
   font-size: 2.5vh;
   font-family: "Press Start 2P", cursive;
   color: white;
   list-style-type: none;
+  cursor: pointer;
+}
+#homeOption:hover {
+  color: black;
+  background-color: white;
 }
 #restartOption {
-  /* padding: 20px; */
   /* margin: 10px; */
+  padding: 5px;
   font-size: 2.5vh;
   font-family: "Press Start 2P", cursive;
   list-style-type: none;
   color: white;
+  cursor: pointer;
+}
+#restartOption:hover {
+  color: black;
+  background-color: white;
 }
 li.selected {
   border: 1px solid white;

@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   z-index: 100000;
 }
 #title {
@@ -25,7 +26,7 @@ body {
   width: 20%;
 }
 .buttonContainer {
-  padding-top: 10vh;
+  padding-top: 5vh;
   display: flex;
   justify-content: center;
   width: 35%;
@@ -70,14 +71,11 @@ body {
   padding-bottom: 3px;
   color: white;
 }
-.userInputs:focus + label > span,
-.userInputs:valid + label > span {
+.userInputs:focus::placeholder,
+.userInputs:valid::placeholder {
   -webkit-transition: top 0.2s ease, font-size 0.2s ease;
   transition: top 0.2s ease, font-size 0.2s ease;
-  position: absolute;
-  top: -25px;
-  font-size: 17px;
-  display: none;
+  opacity: 0;
 }
 #userNameText {
   color: white;
@@ -88,14 +86,17 @@ body {
   outline: none;
   background: none;
   border: none;
-  color: white;
   font-size: 1.5vw;
   font-family: "Press Start 2P", cursive;
   overflow: hidden;
-  opacity: 0;
+  padding: 20px 0px 15px 0px;
+  border: 4px solid white;
+  width: 55vh;
+  background-color: white;
+  color: black;
 }
 #playBtn:hover {
-  cursor: crosshair;
+  cursor: pointer;
 }
 #playBtnLink {
   text-decoration: none;
@@ -105,10 +106,14 @@ body {
   outline: none;
   background: none;
   border: none;
-  color: white;
   font-size: 1.5vw;
   font-family: "Press Start 2P", cursive;
-  opacity: 0;
+  padding: 20px 0px 15px 0px;
+  border: 4px solid white;
+  width: 55vh;
+  background-color: white;
+  color: black;
+  cursor: pointer;
 }
 .leaderBoardContainer {
   width: 100vw;

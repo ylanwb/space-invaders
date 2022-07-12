@@ -6,6 +6,10 @@ const scoreContainer = document.getElementById("scoreCntainer");
 const leaderBoardBtn = document.getElementById("leaderBoardBtn");
 const userNameValue = document.getElementById("userName");
 const placeHolderAfter = document.getElementById('placeHolderAfter')
+
+
+
+  // let lobbyMusic = new Audio("https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3")
   
   // const lobbyMusic = document.getElementById('lobbyMusic')
 
@@ -18,15 +22,15 @@ let userNameCheck;
 function checkName(value) {
   if (value === "") {
     userNameCheck = false;
-    playButton.style.opacity = 0;
-    leaderBoardBtn.style.opacity = 0;
-    placeHolderAfter.style.opacity = 0;
+    playButton.style.display = "none";
+    leaderBoardBtn.style.display = "none";
+    placeHolderAfter.style.display = "none";
 
   } else if (value !== "" && value.length >= 3) {
     console.log(value);
-    placeHolderAfter.style.opacity = 100;
-    playButton.style.opacity = 100;
-    leaderBoardBtn.style.opacity = 100;
+    placeHolderAfter.style.display = "inline";
+    playButton.style.display = "inline";
+    leaderBoardBtn.style.display = "inline";
     return (userNameCheck = true);
   }
 }
@@ -39,11 +43,16 @@ userNameValue.onkeyup = function () {
 setInterval(flicker, 1000);
 
 function flicker() {
-  playButton.style.display = "none";
+  playButton.style.opacity = 0;
   setTimeout(function () {
-    playButton.style.display = "inline";
+    playButton.style.opacity = 100;
   }, 500);
 }
+leaderBoardBtn.addEventListener("click", function () {
+  leaderBoard.style.display = "flex";
+    mainContent.style.opacity = "20%";
+    mainContent.style.display = "none"
+})
 document.body.addEventListener("keypress", function (e) {
   var x = e.which;
   var y = String.fromCharCode(x);
@@ -60,7 +69,7 @@ document.body.addEventListener("keypress", function (e) {
   }
   if (x === 32 && userNameCheck === true) {
     localStorage.setItem("userName", JSON.stringify(userNameValue.value));
-    playBtnLink.setAttribute("href", "../gamePage/game.html");
+    playBtnLink.setAttribute("href", "http://127.0.0.1:5500/gamePage/game.html");
     playBtnLink.click();
   }
 });

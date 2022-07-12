@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Space Invaders</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
@@ -41,9 +41,9 @@
               <p><span>Final Score:</span><span id="finalScoreEl">0</span></p>
             </div>
             <img
-              id="roseImg"
-              src="http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/b09399f88b96513.png"
-              alt="rose"
+              id="gameOverImg"
+              src="https://cdn150.picsart.com/upscale-279201570054211.png"
+              alt="gameOverImg"
             />
             <div class="userOptions">
               <ul id="list">
@@ -99,14 +99,14 @@
       restartButton.addEventListener("click", async () => {
         const name = JSON.parse(localStorage.getItem("userName"));
         const finalScore = JSON.parse(localStorage.getItem("finalScore"));
-        if (name !== null && finalScore !== 0) {
+        if (name !== null && finalScore >= 0) {
           await setDoc(doc(playersCollectionRef), {
             name: name,
             score: finalScore,
             data: "testDate",
           })
             .then((res) => {
-              window.location.assign("game.html")
+              window.location.assign("http://127.0.0.1:5500/gamePage/game.html")
             })
             .catch((err) => {
               console.log(err, "fail");

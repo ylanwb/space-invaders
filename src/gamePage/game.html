@@ -106,7 +106,7 @@
             data: "testDate",
           })
             .then((res) => {
-              window.location.assign("http://127.0.0.1:5500/gamePage/game.html")
+              window.location.assign("game.html")
             })
             .catch((err) => {
               console.log(err, "fail");
@@ -122,7 +122,7 @@
             score: finalScore,
           })
             .then((res) => {
-              window.location.assign("../src/index.html")
+              window.location.assign("../index.html")
               console.log(res, "sucess");
             })
             .catch((err) => {

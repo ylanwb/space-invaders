@@ -10,7 +10,6 @@ const hearts = document.getElementById("heartIcon")
 const hearts2 = document.getElementById("heartIcon2")
 const hearts3 = document.getElementById("heartIcon3")
 
-
 canvas.width = document.body.clientWidth;
 canvas.height = window.innerHeight;
 

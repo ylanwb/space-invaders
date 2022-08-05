@@ -47,10 +47,10 @@
             />
             <div class="userOptions">
               <ul id="list">
-                <a>
+                <a id="restartLink" href="./game.html">
                   <li id="restartOption">Restart</li>
                 </a>
-                <a>
+                <a id="homeLink" href="../index.html">
                   <li id="homeOption">Return Home</li>
                 </a>
               </ul>
@@ -95,6 +95,7 @@
       const db = getFirestore(app);
       const playersCollectionRef = collection(db, "players");
       const restartButton = document.getElementById("restartOption");
+      const restartLink = document.getElementById("restartLink")
       const homeButton = document.getElementById("homeOption");
       restartButton.addEventListener("click", async () => {
         const name = JSON.parse(localStorage.getItem("userName"));
@@ -106,7 +107,8 @@
             data: "testDate",
           })
             .then((res) => {
-              window.location.assign("game.html")
+              // window.location.assign("./game.html")
+              restartLink.setAttribute("href", "./game.html")
             })
             .catch((err) => {
               console.log(err, "fail");
@@ -116,13 +118,16 @@
       homeButton.addEventListener("click", async () => {
         const name = JSON.parse(localStorage.getItem("userName"));
         const finalScore = JSON.parse(localStorage.getItem("finalScore"));
+        const homeLink = document.getElementById("homeLink")
         if (name !== null && finalScore >= 0) {
           await setDoc(doc(playersCollectionRef), {
             name: name,
             score: finalScore,
           })
             .then((res) => {
-              window.location.assign("../index.html")
+              // window.location.assign("../index.html")
+              homeLink.setAttribute("href", "../index.html")
+
               console.log(res, "sucess");
             })
             .catch((err) => {
